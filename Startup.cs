@@ -1,8 +1,7 @@
-//Ana
+//Ana is my favorite
 //Emileeeee
 //Solomon
 
-//Kenko is going live
 
 using System;
 using System.Collections.Generic;
