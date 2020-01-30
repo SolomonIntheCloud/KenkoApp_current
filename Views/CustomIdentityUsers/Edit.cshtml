@@ -74,8 +74,12 @@
                 <span asp-validation-for="ZipCode" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MaritalStatus" class="control-label"></label>
-                <input asp-for="MaritalStatus" class="form-control" />
+                <label asp-for="MaritalStatus" class="control-label"> Marital Status:</label>
+                <input id="Single" name="MaritalStatus" type="radio" />
+                <label for="Single">Single</label>
+                <input id="Married" name="MaritalStatus" type="radio" />
+                <label for="Married">Married</label>
+
                 <span asp-validation-for="MaritalStatus" class="text-danger"></span>
             </div>
             <div class="form-group">

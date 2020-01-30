@@ -46,6 +46,7 @@ namespace KenkoApp.Controllers
         // GET: CustomIdentityUsers/Register
         public IActionResult Register()
         {
+            
             return View();
         }
 
@@ -73,7 +74,7 @@ namespace KenkoApp.Controllers
                 return NotFound();
             }
 
-            var customIdentityUser = await _context.Users.FindAsync(id);
+            var customIdentityUser = await _context.CustomIdentityUsers.FindAsync(id); //Ana changed Users to CustomIdentityUsers, idk if tha'ts correct
             if (customIdentityUser == null)
             {
                 return NotFound();
