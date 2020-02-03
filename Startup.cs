@@ -1,9 +1,3 @@
-//Ana is my favorite
-//Emileeeee
-//Solomon
-//Emilee
-//I see all the changes now
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
