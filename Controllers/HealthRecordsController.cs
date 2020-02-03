@@ -44,6 +44,23 @@ namespace KenkoApp.Controllers
             return View(healthRecord);
         }
 
+        public async Task<IActionResult> Display(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var record = await _context.HealthRecords
+                .FirstOrDefaultAsync(m => m.HealthRecordID == id);
+            if (record == null)
+            {
+                return NotFound();
+            }
+
+            return File(record.RecordData, record.FileType);
+        }
+
         // GET: HealthRecords/Create
         public IActionResult Upload()
         {
