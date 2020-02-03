@@ -55,19 +55,19 @@ namespace KenkoApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("HealthRecordID,Title,RecordData,MimeType")] HealthRecord healthRecord,List<IFormFile> fileInputData)
+        public async Task<IActionResult> Upload([Bind("HealthRecordID,Title,RecordData,MimeType")] HealthRecord healthRecord,List<IFormFile> fileInputData)
         {
             if (ModelState.IsValid)
             {
                 if (fileInputData.Count > 1)
                 {
-                    ModelState.AddModelError("PhotoData", "Please upload only one file.");
+                    ModelState.AddModelError("RecordData", "Please upload only one file.");
                 }
                 var formFile = fileInputData[0]; //get first file
                 var readStream = formFile.OpenReadStream(); //get stream of uploaded data
                 healthRecord.RecordData = new byte[formFile.Length]; // create array on database photo object big enough to hold
                 readStream.Read(healthRecord.RecordData, 0, (int)formFile.Length);//load data from stream into database phot object
-                healthRecord.MimeType = formFile.ContentType; //set database photo mime type based on type of file; png, jpg, etc.
+                healthRecord.FileType = formFile.ContentType; //set database photo mime type based on type of file; png, jpg, etc.
                 _context.Add(healthRecord); //add database photo object database gateway DbContext
                 await _context.SaveChangesAsync(); //save changes to create insert statement
                 return RedirectToAction(nameof(Index));

@@ -16,7 +16,10 @@
 }
 else
 {
+
     <li class="nav-item">
+        @*@if (SignInManager.IsSignedIn(User))*@
+
         <a class="nav-link text-dark"  asp-area="Identity" asp-page="/Account/Register">Register</a>
     </li>
     <li class="nav-item">
