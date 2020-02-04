@@ -8,6 +8,20 @@
     <link rel="stylesheet" href="~/css/site.css" />
     @using Microsoft.AspNetCore.Identity
     @inject SignInManager<CustomIdentityUser> SignInManager
+  
+    <script>
+        $(document).ready(function ($) {
+            var url = window.location.href;
+            var activePage = url;
+            $('.irp-menu-item a').each(function () {
+            var linkPage = this.href;
+
+                if (activePage == linkPage) {
+                    $(this).closest("li").addClass("active");
+                    }
+            });
+        });
+    </script>
 
 </head>
 <body>
