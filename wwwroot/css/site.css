@@ -12,6 +12,23 @@ a {
   color: #0366d6;
 }
 
+#button {
+    color:white;
+    background-image: linear-gradient(to bottom right, #FE7923, #FFCC33);
+    border-color: #fff;
+    font-weight: bold;
+    border:none;
+    border-radius: 3px;
+}
+
+ #button:hover {
+    color: white;
+    background-image: linear-gradient(to bottom right, #0366d6, #00c2c2);
+    border-color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+ }
 .btn-primary {
     color: #fff;
     /*background-color: #FE7923;*/
@@ -74,7 +91,8 @@ html {
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+  box-shadow: 0em 0em .41em 0px hsla(0,0%,0%,.37);
+
 }
 
 button.accept-policy {
