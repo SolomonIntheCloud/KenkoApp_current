@@ -57,6 +57,5 @@ namespace KenkoApp.Models
         [Display(Name = "Insurance Policy Number")]
         public string InsurancePolicyNumber { get; set; }
 
-
     }
 }
