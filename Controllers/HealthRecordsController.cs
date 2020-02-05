@@ -8,16 +8,21 @@ using Microsoft.EntityFrameworkCore;
 using KenkoApp.Data;
 using KenkoApp.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace KenkoApp.Controllers
 {
+    [Authorize]
     public class HealthRecordsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<CustomIdentityUser> _userManager;
 
-        public HealthRecordsController(ApplicationDbContext context)
+        public HealthRecordsController(ApplicationDbContext context, UserManager<CustomIdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: HealthRecords

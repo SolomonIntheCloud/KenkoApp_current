@@ -7,20 +7,22 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using KenkoApp.Data;
 using KenkoApp.Models;
-
-
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace KenkoApp.Controllers
 
 {
-
+    [Authorize]
     public class CustomIdentityUsersController : Controller
     {
 
         private readonly ApplicationDbContext _context;
-        public CustomIdentityUsersController(ApplicationDbContext context)
+        private readonly UserManager<CustomIdentityUser> _userManager;
+        public CustomIdentityUsersController(ApplicationDbContext context, UserManager<CustomIdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: CustomIdentityUsers
@@ -31,26 +33,18 @@ namespace KenkoApp.Controllers
 
 
 
-        // GET: CustomIdentityUsers/Details/5
-
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details() //view details of logged in user only
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
 
 
-            var customIdentityUser = await _context.Users
-                .FirstOrDefaultAsync(m => m.Id == id);
+            ViewBag.id = _userManager.GetUserId(HttpContext.User);
 
-            if (customIdentityUser == null)
-            {
-                return NotFound();
-            }
-            return View(customIdentityUser);
+            var currentUser = await _userManager.GetUserAsync(User);
+            if (currentUser == null) return Challenge();
+
+            return View(currentUser);
         }
-
+        
 
 
         // GET: CustomIdentityUsers/Register
@@ -70,8 +64,13 @@ namespace KenkoApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,DateofBirth,Gender,SocialSecurityNumber,Email,Phone,SecondaryPhone,Address,City,State,ZipCode,MaritalStatus,EmergencyContact,Relationship,InsuranceProvider,InsurancePolicyNumber")] CustomIdentityUser customIdentityUser)
+        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,DateofBirth,Gender,SocialSecurityNumber,Email,Phone,SecondaryPhone,Address,City,State,ZipCode,MaritalStatus,EmergencyContact,Relationship,InsuranceProvider,InsurancePolicyNumber")] CustomIdentityUser customIdentityUser, int pcmID)
         {
+            var pcm = _context
+                 .PCM
+                 .SingleOrDefault(x => x.PCMID == pcmID);
+            customIdentityUser.PCM = pcm;
+
             if (ModelState.IsValid)
             {
                 _context.Add(customIdentityUser);
@@ -79,23 +78,38 @@ namespace KenkoApp.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(customIdentityUser);
+
+            //if (ModelState.IsValid)
+            //{
+            //    _context.Add(customIdentityUser);
+            //    await _context.SaveChangesAsync();
+            //    return RedirectToAction(nameof(Index));
+            //}
+            //return View(customIdentityUser);
         }
 
         // GET: CustomIdentityUsers/Edit/5
-
-        public async Task<IActionResult> Edit(int? id)
+        [HttpGet]
+        public async Task<IActionResult> Edit()
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            ViewBag.id = _userManager.GetUserId(HttpContext.User);
 
-            var customIdentityUser = await _context.Users.FindAsync(id);
-            if (customIdentityUser == null)
-            {
-                return NotFound();
-            }
-            return View(customIdentityUser);
+            var currentUser = await _userManager.GetUserAsync(User);
+            if (currentUser == null) return Challenge();
+
+            return View(currentUser);
+
+            //if (id == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //var customIdentityUser = await _context.Users.FindAsync(id);
+            //if (customIdentityUser == null)
+            //{
+            //    return NotFound();
+            //}
+            //return View(customIdentityUser);
         }
 
 
@@ -112,8 +126,6 @@ namespace KenkoApp.Controllers
                 return NotFound();
             }
 
-
-
             if (ModelState.IsValid)
             {
                 try
@@ -121,8 +133,9 @@ namespace KenkoApp.Controllers
                     _context.Update(customIdentityUser);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
+                catch (DbUpdateConcurrencyException ex)
                 {
+
                     if (!CustomIdentityUserExists(customIdentityUser.Id))
                     {
                         return NotFound();

@@ -1,14 +1,8 @@
 ﻿@model KenkoApp.Models.CustomIdentityUser
 
-
-
 @{
-
     ViewData["Title"] = "Complete New Patient information";
-
 }
-
-
 
 <h1>Edit</h1>
 
@@ -133,10 +127,17 @@
 
 </div>
 
+<footer>
+    <script>
+        if (FirstName)
+            alert("Please enter first name.");
+        //else
+        //    alert()
+    </script>
 
+    @section Scripts {
 
-@section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-
-}
+    }
+</footer>

@@ -11,6 +11,9 @@ namespace KenkoApp.Models
     public class CustomIdentityUser : IdentityUser  
 
     {
+
+        public PCM PCM { get; set; }
+
         //Emilee, add new patient user properties 
         [Display(Name = "First Name")]
         public string FirstName { get; set; }

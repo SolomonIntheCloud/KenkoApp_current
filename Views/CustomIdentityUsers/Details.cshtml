@@ -10,13 +10,13 @@
 
 
 
-<h1>Details</h1>
+@*<h1>Details</h1>*@
 
 
 
 <div>
 
-    <h4>CustomIdentityUser</h4>
+    <h4>@User.Identity.Name</h4> 
 
     <hr />
 
@@ -237,3 +237,10 @@
     <a asp-action="Index">Back to List</a>
 
 </div>
+
+<footer>
+    @*<script>
+        if (FirstName = null)
+            alert("Please enter first name.");
+    </script>*@
+</footer>

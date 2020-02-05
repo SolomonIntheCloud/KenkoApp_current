@@ -4,14 +4,16 @@ using KenkoApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace KenkoApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200205162658_PCM_CareAdmin_Models_Added")]
+    partial class PCM_CareAdmin_Models_Added
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -159,9 +161,6 @@ namespace KenkoApp.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CustomIdentityUserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("FileType")
                         .HasColumnType("nvarchar(max)");
 
@@ -175,8 +174,6 @@ namespace KenkoApp.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("HealthRecordID");
-
-                    b.HasIndex("CustomIdentityUserId");
 
                     b.ToTable("HealthRecords");
                 });
@@ -347,13 +344,6 @@ namespace KenkoApp.Data.Migrations
                     b.HasOne("KenkoApp.Models.PCM", "PCM")
                         .WithMany()
                         .HasForeignKey("PCMID");
-                });
-
-            modelBuilder.Entity("KenkoApp.Models.HealthRecord", b =>
-                {
-                    b.HasOne("KenkoApp.Models.CustomIdentityUser", "CustomIdentityUser")
-                        .WithMany()
-                        .HasForeignKey("CustomIdentityUserId");
                 });
 
             modelBuilder.Entity("KenkoApp.Models.PCM", b =>

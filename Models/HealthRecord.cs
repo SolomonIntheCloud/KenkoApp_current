@@ -13,6 +13,7 @@ namespace KenkoApp.Models
         public string FileType { get; set; }
 
         public string RecordNotes { get; set; }
+        public CustomIdentityUser CustomIdentityUser { get; set; }
 
     }
 }
