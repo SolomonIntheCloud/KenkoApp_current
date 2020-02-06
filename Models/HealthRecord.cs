@@ -11,7 +11,6 @@ namespace KenkoApp.Models
         public string Title { get; set; }
         public byte[] RecordData { get; set; }
         public string FileType { get; set; }
-
         public string RecordNotes { get; set; }
         public CustomIdentityUser CustomIdentityUser { get; set; }
 

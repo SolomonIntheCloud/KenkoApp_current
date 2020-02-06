@@ -28,6 +28,17 @@ namespace KenkoApp.Controllers
         // GET: HealthRecords
         public async Task<IActionResult> Index()
         {
+            ViewBag.id = _userManager.GetUserId(HttpContext.User);
+            var currentUser = await _userManager.GetUserAsync(User);
+            if (currentUser == null) return Challenge();
+            //return View(currentUser);
+
+            //if the current user id matches the CustomerUserID associated with the healthrecord, show those records.
+            //if (currentUser.Id == CustomIdentityUserId)
+            //{
+            //}
+
+
             return View(await _context.HealthRecords.ToListAsync());
         }
 
@@ -77,8 +88,20 @@ namespace KenkoApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Upload([Bind("HealthRecordID,Title,RecordData,MimeType")] HealthRecord healthRecord,List<IFormFile> fileInputData)
+        public async Task<IActionResult> Upload([Bind("HealthRecordID,Title,RecordData,FileType,RecordNotes,")] HealthRecord healthRecord,List<IFormFile> fileInputData, string UserID) //removed CustomerUserId from Bind
         {
+            //var CurrentUser = _context
+            //   .CustomIdentityUsers
+            //   .SingleOrDefault(x => x.Id == UserID);
+
+            //healthRecord.CustomIdentityUser = CurrentUser;
+
+
+            ViewBag.id = _userManager.GetUserId(HttpContext.User);
+            var currentUser = await _userManager.GetUserAsync(User);
+            healthRecord.CustomIdentityUser = currentUser;
+
+
             if (ModelState.IsValid)
             {
                 if (fileInputData.Count > 1)
