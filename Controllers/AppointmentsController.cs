@@ -10,22 +10,22 @@ using KenkoApp.Models;
 
 namespace KenkoApp.Controllers
 {
-    public class PCMsController : Controller
+    public class AppointmentsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public PCMsController(ApplicationDbContext context)
+        public AppointmentsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: PCMs
+        // GET: Appointments
         public async Task<IActionResult> Index()
         {
-            return View(await _context.PCM.ToListAsync());
+            return View(await _context.Appointment.ToListAsync());
         }
 
-        // GET: PCMs/Details/5
+        // GET: Appointments/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace KenkoApp.Controllers
                 return NotFound();
             }
 
-            var pCM = await _context.PCM
-                .FirstOrDefaultAsync(m => m.PCMID == id);
-            if (pCM == null)
+            var appointment = await _context.Appointment
+                .FirstOrDefaultAsync(m => m.AppointmentID == id);
+            if (appointment == null)
             {
                 return NotFound();
             }
 
-            return View(pCM);
+            return View(appointment);
         }
 
-        // GET: PCMs/Create
+        // GET: Appointments/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: PCMs/Create
+        // POST: Appointments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("pcmFName,pcmLName,PCMID,Specialty")] PCM pCM)
+        public async Task<IActionResult> Create([Bind("DateTime,AppointmentID,ReasonForVisit")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(pCM);
+                _context.Add(appointment);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(pCM);
+            return View(appointment);
         }
 
-        // GET: PCMs/Edit/5
+        // GET: Appointments/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace KenkoApp.Controllers
                 return NotFound();
             }
 
-            var pCM = await _context.PCM.FindAsync(id);
-            if (pCM == null)
+            var appointment = await _context.Appointment.FindAsync(id);
+            if (appointment == null)
             {
                 return NotFound();
             }
-            return View(pCM);
+            return View(appointment);
         }
 
-        // POST: PCMs/Edit/5
+        // POST: Appointments/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("pcmFName,pcmLName,PCMID,Specialty")] PCM pCM)
+        public async Task<IActionResult> Edit(int id, [Bind("DateTime,AppointmentID,ReasonForVisit")] Appointment appointment)
         {
-            if (id != pCM.PCMID)
+            if (id != appointment.AppointmentID)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace KenkoApp.Controllers
             {
                 try
                 {
-                    _context.Update(pCM);
+                    _context.Update(appointment);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PCMExists(pCM.PCMID))
+                    if (!AppointmentExists(appointment.AppointmentID))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace KenkoApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(pCM);
+            return View(appointment);
         }
 
-        // GET: PCMs/Delete/5
+        // GET: Appointments/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace KenkoApp.Controllers
                 return NotFound();
             }
 
-            var pCM = await _context.PCM
-                .FirstOrDefaultAsync(m => m.PCMID == id);
-            if (pCM == null)
+            var appointment = await _context.Appointment
+                .FirstOrDefaultAsync(m => m.AppointmentID == id);
+            if (appointment == null)
             {
                 return NotFound();
             }
 
-            return View(pCM);
+            return View(appointment);
         }
 
-        // POST: PCMs/Delete/5
+        // POST: Appointments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var pCM = await _context.PCM.FindAsync(id);
-            _context.PCM.Remove(pCM);
+            var appointment = await _context.Appointment.FindAsync(id);
+            _context.Appointment.Remove(appointment);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PCMExists(int id)
+        private bool AppointmentExists(int id)
         {
-            return _context.PCM.Any(e => e.PCMID == id);
+            return _context.Appointment.Any(e => e.AppointmentID == id);
         }
     }
 }

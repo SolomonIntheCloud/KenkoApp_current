@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using KenkoApp.Data;
 using KenkoApp.Models;
 
 namespace KenkoApp.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class CareAdministratorsController : ControllerBase
+    public class CareAdministratorsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
@@ -21,85 +19,130 @@ namespace KenkoApp.Controllers
             _context = context;
         }
 
-        // GET: api/CareAdministrators
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<CareAdministrator>>> GetCareAdministrator()
+        // GET: CareAdministrators
+        public async Task<IActionResult> Index()
         {
-            return await _context.CareAdministrator.ToListAsync();
+            return View(await _context.CareAdministrator.ToListAsync());
         }
 
-        // GET: api/CareAdministrators/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<CareAdministrator>> GetCareAdministrator(int id)
+        // GET: CareAdministrators/Details/5
+        public async Task<IActionResult> Details(int? id)
         {
-            var careAdministrator = await _context.CareAdministrator.FindAsync(id);
+            if (id == null)
+            {
+                return NotFound();
+            }
 
+            var careAdministrator = await _context.CareAdministrator
+                .FirstOrDefaultAsync(m => m.CareAdministratorId == id);
             if (careAdministrator == null)
             {
                 return NotFound();
             }
 
-            return careAdministrator;
+            return View(careAdministrator);
         }
 
-        // PUT: api/CareAdministrators/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutCareAdministrator(int id, CareAdministrator careAdministrator)
+        // GET: CareAdministrators/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: CareAdministrators/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("CareAdministratorId,AdminEmail,AdminPassword")] CareAdministrator careAdministrator)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(careAdministrator);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(careAdministrator);
+        }
+
+        // GET: CareAdministrators/Edit/5
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var careAdministrator = await _context.CareAdministrator.FindAsync(id);
+            if (careAdministrator == null)
+            {
+                return NotFound();
+            }
+            return View(careAdministrator);
+        }
+
+        // POST: CareAdministrators/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("CareAdministratorId,AdminEmail,AdminPassword")] CareAdministrator careAdministrator)
         {
             if (id != careAdministrator.CareAdministratorId)
             {
-                return BadRequest();
+                return NotFound();
             }
 
-            _context.Entry(careAdministrator).State = EntityState.Modified;
-
-            try
+            if (ModelState.IsValid)
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CareAdministratorExists(id))
+                try
                 {
-                    return NotFound();
+                    _context.Update(careAdministrator);
+                    await _context.SaveChangesAsync();
                 }
-                else
+                catch (DbUpdateConcurrencyException)
                 {
-                    throw;
+                    if (!CareAdministratorExists(careAdministrator.CareAdministratorId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
                 }
+                return RedirectToAction(nameof(Index));
             }
-
-            return NoContent();
+            return View(careAdministrator);
         }
 
-        // POST: api/CareAdministrators
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPost]
-        public async Task<ActionResult<CareAdministrator>> PostCareAdministrator(CareAdministrator careAdministrator)
+        // GET: CareAdministrators/Delete/5
+        public async Task<IActionResult> Delete(int? id)
         {
-            _context.CareAdministrator.Add(careAdministrator);
-            await _context.SaveChangesAsync();
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-            return CreatedAtAction("GetCareAdministrator", new { id = careAdministrator.CareAdministratorId }, careAdministrator);
-        }
-
-        // DELETE: api/CareAdministrators/5
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<CareAdministrator>> DeleteCareAdministrator(int id)
-        {
-            var careAdministrator = await _context.CareAdministrator.FindAsync(id);
+            var careAdministrator = await _context.CareAdministrator
+                .FirstOrDefaultAsync(m => m.CareAdministratorId == id);
             if (careAdministrator == null)
             {
                 return NotFound();
             }
 
+            return View(careAdministrator);
+        }
+
+        // POST: CareAdministrators/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var careAdministrator = await _context.CareAdministrator.FindAsync(id);
             _context.CareAdministrator.Remove(careAdministrator);
             await _context.SaveChangesAsync();
-
-            return careAdministrator;
+            return RedirectToAction(nameof(Index));
         }
 
         private bool CareAdministratorExists(int id)

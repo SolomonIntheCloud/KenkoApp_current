@@ -66,18 +66,10 @@ namespace KenkoApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,DateofBirth,Gender,SocialSecurityNumber,Email,Phone,SecondaryPhone,Address,City,State,ZipCode,MaritalStatus,EmergencyContact,Relationship,InsuranceProvider,InsurancePolicyNumber")] CustomIdentityUser customIdentityUser, int pcmID)
         {
-            var pcm = _context
-                 .PCM
-                 .SingleOrDefault(x => x.PCMID == pcmID);
-            customIdentityUser.PCM = pcm;
-
-            if (ModelState.IsValid)
-            {
-                _context.Add(customIdentityUser);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(customIdentityUser);
+            //var pcm = _context
+            //     .PCM
+            //     .SingleOrDefault(x => x.PCMID == pcmID);
+            //customIdentityUser.PCM = pcm;
 
             //if (ModelState.IsValid)
             //{
@@ -86,30 +78,38 @@ namespace KenkoApp.Controllers
             //    return RedirectToAction(nameof(Index));
             //}
             //return View(customIdentityUser);
+
+            if (ModelState.IsValid)
+            {
+                _context.Add(customIdentityUser);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(customIdentityUser);
         }
 
         // GET: CustomIdentityUsers/Edit/5
         [HttpGet]
-        public async Task<IActionResult> Edit()
+        public async Task<IActionResult> Edit(string id)
         {
-            ViewBag.id = _userManager.GetUserId(HttpContext.User);
+            //ViewBag.id = _userManager.GetUserId(HttpContext.User);
 
-            var currentUser = await _userManager.GetUserAsync(User);
-            if (currentUser == null) return Challenge();
+            //var currentUser = await _userManager.GetUserAsync(User);
+            //if (currentUser == null) return Challenge();
 
-            return View(currentUser);
+            //return View(currentUser);
 
-            //if (id == null)
-            //{
-            //    return NotFound();
-            //}
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-            //var customIdentityUser = await _context.Users.FindAsync(id);
-            //if (customIdentityUser == null)
-            //{
-            //    return NotFound();
-            //}
-            //return View(customIdentityUser);
+            var customIdentityUser = await _context.Users.FindAsync(id);
+            if (customIdentityUser == null)
+            {
+                return NotFound();
+            }
+            return View(customIdentityUser);
         }
 
 
