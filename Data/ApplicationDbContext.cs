@@ -15,5 +15,8 @@ namespace KenkoApp.Data
         }
         public DbSet<HealthRecord> HealthRecords { get; set; }
         public DbSet<CustomIdentityUser> CustomIdentityUsers { get; set; }
+        public DbSet<CareAdministrator> CareAdministrator { get; set; }
+        public DbSet<PCM> PCM { get; set; }
+        public DbSet<Appointment> Appointment { get; set; }
     }
 }

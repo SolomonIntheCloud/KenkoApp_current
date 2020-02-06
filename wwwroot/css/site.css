@@ -20,6 +20,14 @@ a {
     border:none;
     border-radius: 3px;
 }
+ /*{
+    color: white;
+    background-image: linear-gradient(to bottom right, #FE7923, #FFCC33);
+    border-color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+}*/
 
  #button:hover {
     color: white;

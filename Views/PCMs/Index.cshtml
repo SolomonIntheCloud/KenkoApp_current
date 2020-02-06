@@ -1,0 +1,48 @@
+﻿@model IEnumerable<KenkoApp.Models.PCM>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.pcmFName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pcmLName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Specialty)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.pcmFName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pcmLName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Specialty)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PCMID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PCMID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PCMID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -16,6 +16,7 @@ using Microsoft.Extensions.Logging;
 namespace KenkoApp.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
+    //How do we prevent logged in users from getting to this page? 
     public class LoginModel : PageModel
     {
         private readonly UserManager<CustomIdentityUser> _userManager;

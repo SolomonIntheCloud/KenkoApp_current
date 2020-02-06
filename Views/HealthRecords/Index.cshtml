@@ -4,6 +4,8 @@
     ViewData["Title"] = "Health Records";
 }
 
+
+
 <div class="row" style="padding: 10px 0px 0px 10px">
     <div class="col-8"> 
         <h4>Health Record</h4>
@@ -44,11 +46,12 @@
             <td>
                 <img src="@Url.Action("Display", "HealthRecords", new {id = item.HealthRecordID})" width="120" />
             </td>
-            <td class="collapse" > @*added here*@
-                @Html.DisplayFor(modelItem => item.RecordNotes)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FileType)
+            </td>
+            <td>
+                @*added here*@
+                @Html.DisplayFor(modelItem => item.RecordNotes)
             </td>
             <td style="text-align-last:right">
                 <a asp-action="Edit" asp-route-id="@item.HealthRecordID">Edit</a> |

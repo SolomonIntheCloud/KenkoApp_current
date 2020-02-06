@@ -11,6 +11,9 @@ namespace KenkoApp.Models
     public class CustomIdentityUser : IdentityUser  
 
     {
+
+        public PCM PCM { get; set; }
+
         //Emilee, add new patient user properties 
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
@@ -19,7 +22,8 @@ namespace KenkoApp.Models
         public string LastName { get; set; }
         
         [Display(Name = "Date of Birth")]
-        public DateTime DateofBirth { get; set; }
+        [DataType(DataType.Date)] //added this and the ?
+        public DateTime? DateofBirth { get; set; }
         
         [Display(Name = "Gender")]
         public string Gender { get; set; }
@@ -54,9 +58,18 @@ namespace KenkoApp.Models
         [Display(Name = "Insurance Provider")]
         public string InsuranceProvider { get; set; }
 
+        public enum Insurance
+        {
+            TogetherHealth,
+            Persona,
+            Peak,
+            BluePlus,
+            BlueArmor,
+            Edna
+        }
+
         [Display(Name = "Insurance Policy Number")]
         public string InsurancePolicyNumber { get; set; }
-
 
     }
 }
