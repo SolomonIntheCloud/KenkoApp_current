@@ -28,7 +28,7 @@ namespace KenkoApp.Controllers
         // GET: HealthRecords
         public async Task<IActionResult> Index()
         {
-            //ViewBag.id = _userManager.GetUserId(HttpContext.User);
+            ViewBag.id = _userManager.GetUserId(HttpContext.User);
             var currentUser = await _userManager.GetUserAsync(User);
             if (currentUser == null) return Challenge();
             //return View(currentUser);
@@ -42,6 +42,7 @@ namespace KenkoApp.Controllers
             var model = _context
                 .HealthRecords
                 .Where(x => x.CustomIdentityUser.Id == currentUser.Id)
+
                 .ToList();
 
             return View(await _context.HealthRecords.ToListAsync());
@@ -57,6 +58,7 @@ namespace KenkoApp.Controllers
 
             var healthRecord = await _context.HealthRecords
                 .FirstOrDefaultAsync(m => m.HealthRecordID == id);
+
             if (healthRecord == null)
             {
                 return NotFound();

@@ -11,12 +11,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 
 namespace KenkoApp.Controllers
-
 {
     [Authorize]
     public class CustomIdentityUsersController : Controller
     {
-
         private readonly ApplicationDbContext _context;
         private readonly UserManager<CustomIdentityUser> _userManager;
         public CustomIdentityUsersController(ApplicationDbContext context, UserManager<CustomIdentityUser> userManager)
@@ -32,10 +30,9 @@ namespace KenkoApp.Controllers
         }
 
 
-
         public async Task<IActionResult> Details() //view details of logged in user only
         {
-            ViewBag.id = _userManager.GetUserId(HttpContext.User);
+            //ViewBag.id = _userManager.GetUserId(HttpContext.User);
             var currentUser = await _userManager.GetUserAsync(User);
             if (currentUser == null) return Challenge();
             return View(currentUser);
@@ -44,7 +41,6 @@ namespace KenkoApp.Controllers
 
 
         // GET: CustomIdentityUsers/Register
-
         public IActionResult Register()
         {
             return View();
@@ -53,16 +49,13 @@ namespace KenkoApp.Controllers
 
 
         // POST: CustomIdentityUsers/Create
-
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,DateofBirth,Gender,SocialSecurityNumber,Email,Phone,SecondaryPhone,Address,City,State,ZipCode,MaritalStatus,EmergencyContact,Relationship,InsuranceProvider,InsurancePolicyNumber")] CustomIdentityUser customIdentityUser)
         {
-
             if (ModelState.IsValid)
             {
                 _context.Add(customIdentityUser);
@@ -71,6 +64,7 @@ namespace KenkoApp.Controllers
             }
             return View(customIdentityUser);
         }
+
 
         // GET: CustomIdentityUsers/Edit/5
         [HttpGet]
@@ -117,7 +111,7 @@ namespace KenkoApp.Controllers
                     _context.Update(customIdentityUser);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException ex)
+                catch (DbUpdateConcurrencyException)
                 {
 
                     if (!CustomIdentityUserExists(customIdentityUser.Id))
