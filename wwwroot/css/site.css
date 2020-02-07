@@ -132,31 +132,24 @@ body {
 active {
     background-image: linear-gradient(to bottom right, #0366d6, #00c2c2);
 }
-/*.top-content {
-    background-image: url('../img/banner kenko.jpg');
-    background-repeat: no-repeat;
-}*/
 
 
 .overview-content {
     background-image: url('../img/banner kenko.jpg');
     background-repeat: no-repeat;
-    background-size: auto;
-   
+    background-size:auto;
 }
 
 
 .aboutus-content {
-    background-color: #f7870c;
+    background-color: #e2dede;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .contact-content {
-    background-color: #458ed9;
+    background-color: #edaf53;
     background-repeat: no-repeat;
     background-size: cover;
 }
-
-
 
