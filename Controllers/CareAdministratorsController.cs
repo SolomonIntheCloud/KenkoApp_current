@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using KenkoApp.Data;
 using KenkoApp.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace KenkoApp.Controllers
 {
+    [Authorize]
     public class CareAdministratorsController : Controller
     {
         private readonly ApplicationDbContext _context;

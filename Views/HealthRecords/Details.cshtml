@@ -28,6 +28,10 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.FileType)
         </dd>
+        <dd>
+            @*<img src="@Url.Action("Display", "HealthRecords", new {id = item.HealthRecordID})"/>*@ 
+            Picture goes here
+        </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.RecordNotes)
         </dt>

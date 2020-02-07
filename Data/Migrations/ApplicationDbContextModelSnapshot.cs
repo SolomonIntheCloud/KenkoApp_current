@@ -375,21 +375,21 @@ namespace KenkoApp.Data.Migrations
             modelBuilder.Entity("KenkoApp.Models.CustomIdentityUser", b =>
                 {
                     b.HasOne("KenkoApp.Models.PCM", "PCM")
-                        .WithMany()
+                        .WithMany("CustomIdentityUsers")
                         .HasForeignKey("PCMID");
                 });
 
             modelBuilder.Entity("KenkoApp.Models.HealthRecord", b =>
                 {
                     b.HasOne("KenkoApp.Models.CustomIdentityUser", "CustomIdentityUser")
-                        .WithMany()
+                        .WithMany("HealthRecords")
                         .HasForeignKey("CustomIdentityUserId");
                 });
 
             modelBuilder.Entity("KenkoApp.Models.PCM", b =>
                 {
                     b.HasOne("KenkoApp.Models.CareAdministrator", "CareAdministrator")
-                        .WithMany()
+                        .WithMany("PCMs")
                         .HasForeignKey("CareAdministratorId");
                 });
 

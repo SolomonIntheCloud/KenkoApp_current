@@ -28,7 +28,7 @@ namespace KenkoApp.Controllers
         // GET: HealthRecords
         public async Task<IActionResult> Index()
         {
-            ViewBag.id = _userManager.GetUserId(HttpContext.User);
+            //ViewBag.id = _userManager.GetUserId(HttpContext.User);
             var currentUser = await _userManager.GetUserAsync(User);
             if (currentUser == null) return Challenge();
             //return View(currentUser);
@@ -38,6 +38,11 @@ namespace KenkoApp.Controllers
             //{
             //}
 
+            //code from Michael
+            var model = _context
+                .HealthRecords
+                .Where(x => x.CustomIdentityUser.Id == currentUser.Id)
+                .ToList();
 
             return View(await _context.HealthRecords.ToListAsync());
         }
@@ -96,10 +101,14 @@ namespace KenkoApp.Controllers
 
             //healthRecord.CustomIdentityUser = CurrentUser;
 
+            var user = await _userManager.GetUserAsync(User);
+            healthRecord.CustomIdentityUser = user;
 
-            ViewBag.id = _userManager.GetUserId(HttpContext.User);
-            var currentUser = await _userManager.GetUserAsync(User);
-            healthRecord.CustomIdentityUser = currentUser;
+
+
+            //ViewBag.id = _userManager.GetUserId(HttpContext.User);  what I had before
+            //var currentUser = await _userManager.GetUserAsync(User);
+            //healthRecord.CustomIdentityUser = currentUser;
 
 
             if (ModelState.IsValid)

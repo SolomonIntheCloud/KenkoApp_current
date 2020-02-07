@@ -12,6 +12,7 @@ namespace KenkoApp.Models
         public int PCMID { get; set; }
         public string Specialty { get; set; }
         public CareAdministrator CareAdministrator { get; set; }
+        public ICollection<CustomIdentityUser> CustomIdentityUsers { get; set; }
 
     }
 }

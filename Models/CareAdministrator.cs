@@ -10,6 +10,6 @@ namespace KenkoApp.Models
         public int CareAdministratorId { get; set; }
         public string AdminEmail { get; set; }
         public string AdminPassword { get; set; }
-
+        public ICollection<PCM> PCMs { get; set; }
     }
 }
