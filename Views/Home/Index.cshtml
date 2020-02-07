@@ -1,10 +1,180 @@
-﻿@{
+﻿@*@{
+        ViewData["Title"] = "Home Page";
+    }*@
+
+
+
+
+
+
+@*<div>
+
+
+
+        <style type="text/css">
+            body {
+                background-image: url('img/kenko1_kenko_logo_full.png');
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        </style>
+    </div>
+
+        <div>
+            <style>
+                body {
+                    background-color: #4cff00;
+                    background-image: url('img/hipaa.jpg');
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
+            </style>*@
+
+@*</div>*@
+
+@*<div class="top-content">*@
+
+@*<style>
+        body {
+            background-color: #4cff00;
+            /*background-image: url('img/banner kenko.jpg')*/;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>*@
+@*</div>*@
+
+
+@*<body>
+        <div class="text-center">
+            <h1 class="display-4">Welcome</h1>
+        </div>
+
+
+    </body>*@
+
+
+
+
+@{
     ViewData["Title"] = "Home Page";
 }
+<html>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-   
+<head>
+    @*<title>W3.CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">*@
+    <style>
+        .mySlides {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
 
 
-</div>
+    <div class="w3-content w3-section" style="max-width:500px">
+        <img class="mySlides" src="~/img/Kenko_hands_2.jpg" style="width:100%">
+        <img class="mySlides" src="~/img/Kenko_pills.jpg" style="width:100%">
+        <img class="mySlides" src="~/img/Kenko_stethoscope.jpg" style="width:100%">
+    </div>
+
+    <script>
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) { myIndex = 1 }
+            x[myIndex - 1].style.display = "block";
+            setTimeout(carousel, 2000); // Change image every 2 seconds
+        }
+    </script>
+          
+
+    <div></div>
+
+
+    <div class="overview-content" id="overview">
+        <h3 class="overview-content text-primary">Overview</h3>
+        <section class="text-justify">
+            <span style="font-size: medium;">
+                Kenkō is a customizable and secure patient-centric portal offering cloud-based solutions for healthcare facilities. Our portal offers a single patient engagement solution to include:<br />
+                <br />
+                • Validation of insurance accepted by facility<br />
+                • Selection of provider preference<br />
+                • Appointment scheduling<br />
+                • Access to healthcare records<br />
+                • Prescription renewal<br />
+                • Viewing of labs<br />
+                • Ability to fill out forms electronically <br />
+                <br />
+                In addition, Kenkō is HIPAA-Compliant and EHR-agnostic, achieving interoperability with all EHRs. Implementation of our patient portal will assist your healthcare facility to achieve stage 3 meaningful use published by CMS (Center for Medicare and Medicaid Services) and ONC (Office of National Coordinator).<br />
+                <br />
+                Compatible with Windows, Mac and Linux operating systems.
+            </span>
+        </section>
+        <br />
+        <br />
+    </div>
+
+
+    <div class="aboutus-content" id="aboutus">
+        <h3 class="aboutus-content text-center"> About Us</h3>
+        <section class="text-center">
+            Kenkō is a customizable and secure patient-centric portal offering cloud-based solutions for healthcare facilities. Our portal offers a single patient engagement solution to include:<br />
+            <br />
+            • Validation of insurance accepted by facility<br />
+            • Selection of provider preference<br />
+            • Appointment scheduling<br />
+            • Access to healthcare records<br />
+            • Prescription renewal<br />
+            • Viewing of labs<br />
+            • Ability to fill out forms electronically <br />
+            <br />
+            In addition, Kenkō is HIPAA-Compliant and EHR-agnostic, achieving interoperability with all EHRs. Implementation of our patient portal will assist your healthcare facility to achieve stage 3 meaningful use published by CMS (Center for Medicare and Medicaid Services) and ONC (Office of National Coordinator).<br />
+            Compatible with Windows, Mac and Linux operating systems.<br />
+        </section>
+        <br />
+        <br />
+    </div>
+
+
+    <div class="contact-content" id="contact">
+
+        <h3 class="contact-content text-right"> Contact</h3>
+        <section class="text-md-right">
+            Kenkō is a customizable and secure patient-centric portal offering cloud-based solutions for healthcare facilities. Our portal offers a single patient engagement solution to include:<br />
+            <br />
+            • Validation of insurance accepted by facility<br />
+            • Selection of provider preference<br />
+            • Appointment scheduling<br />
+            • Access to healthcare records<br />
+            • Prescription renewal<br />
+            • Viewing of labs<br />
+            • Ability to fill out forms electronically <br />
+            <br />
+            In addition, Kenkō is HIPAA-Compliant and EHR-agnostic, achieving interoperability with all EHRs. Implementation of our patient portal will assist your healthcare facility to achieve stage 3 meaningful use published by CMS (Center for Medicare and Medicaid Services) and ONC (Office of National Coordinator).<br />
+            Compatible with Windows, Mac and Linux operating systems.<br />
+
+        </section>
+        <br />
+        <br />
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
