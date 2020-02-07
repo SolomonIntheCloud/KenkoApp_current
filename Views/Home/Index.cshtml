@@ -59,7 +59,7 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-<html>
+
 
 <head>
     @*<title>W3.CSS</title>
@@ -73,11 +73,22 @@
     </style>
 </head>
 
+
+
 <body>
 
 
+    @*<div class="pic-ctn">
+
+            <img src="https://picsum.photos/200/300?t=1" alt="" class="pic">
+            <img src="https://picsum.photos/200/300?t=2" alt="" class="pic">
+            <img src="https://picsum.photos/200/300?t=3" alt="" class="pic">
+            <img src="https://picsum.photos/200/300?t=4" alt="" class="pic">
+            <img src="https://picsum.photos/200/300?t=5" alt="" class="pic">
+        </div>*@
+
     <div class="w3-content w3-section" style="max-width:500px">
-        <img class="mySlides" src="~/img/Kenko_hands_2.jpg" style="width:100%">
+        <img class="mySlides" src="~/img/Kenko_hands_2.jpg"style="width:100%">
         <img class="mySlides" src="~/img/Kenko_pills.jpg" style="width:100%">
         <img class="mySlides" src="~/img/Kenko_stethoscope.jpg" style="width:100%">
     </div>
@@ -98,9 +109,6 @@
             setTimeout(carousel, 2000); // Change image every 2 seconds
         }
     </script>
-          
-
-    <div></div>
 
 
     <div class="overview-content" id="overview">
@@ -169,9 +177,9 @@
         <br />
         <br />
     </div>
-
+      
 </body>
-</html>
+
 
 
 
