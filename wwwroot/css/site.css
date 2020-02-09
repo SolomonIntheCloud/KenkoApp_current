@@ -153,3 +153,13 @@ active {
     background-size: cover;
 }
 
+.mySlides {
+    display: none;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
