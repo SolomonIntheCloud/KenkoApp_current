@@ -7,15 +7,46 @@ for details on configuring this project to bundle and minify static web assets. 
     width: 100%;
 }
 
-/*.content not working*/
 
-.sticky + .content {
-    padding-top: 100px;
+/*Stretches background across screen*/
+
+.stripe {
+    background-color: #CCFFFF;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.content {
-    padding: 16px;
+        .stripe:before {
+            content: "";
+            background-color: #CCFFFF;
+            position: absolute;
+            height: 100%;
+            width: 4000px;
+            left: -2000px;
+            z-index:-1;
+        }
+
+
+
+
+.stripe2 {
+    background-color: #f9d189;
+    position: relative;
+    background-size: cover;
 }
+
+        .stripe2:before {
+            content: "";
+            background-color: #f9d189;
+            position: absolute;
+            height: 100%;
+            width: 4000px;
+            left: -2000px;
+            z-index: -1;
+        }
+
+
 
 a.navbar-brand {
   white-space: normal;
@@ -180,6 +211,7 @@ active {
     width: 100%;
     z-index: 1;
 }
+
 
 .img {
     background-size: contain;

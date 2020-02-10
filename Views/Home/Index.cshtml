@@ -75,12 +75,13 @@
 <body>
 
     @*Emilee changed max width from 1000px o 1200 px,needs to be modified, issue with linking on page*@
-    <div class="w3-content w3-section" style="max-width:1200px">
+    @*Ana modified to fixed height, also removed w3 classes*@ 
+    <div style="max-width:1200px; margin: 0 0 0 0">
         <img class="mySlides" src="~/img/Kenko_stethoscope_2.jpg" style="height:600px">
         <img class="mySlides" src="~/img/Kenko_bloodpressure.jpg" style="height:600px">
         <img class="mySlides" src="~/img/Kenko_smartwatch.jpg" style="height:600px">
         <img class="mySlides" src="~/img/Kenko_Shoes.jpg" style="height:600px">
-     
+
     </div>
 
     <script>
@@ -99,13 +100,14 @@
             setTimeout(carousel, 2000); // Change image every 2 seconds
         }
     </script>
-          
+
 
     <div></div>
 
-    <div class="overview-content" id="overview"  style="padding-top:100px">
-        <h3 class="overview-content text-center primary">Overview</h3>
-        <section class="text-center">
+    <div class="stripe" id="overview" style="padding:0px 50px 0px 50px">
+        @*removed top & bottom padding*@
+        <h3 class="text-center primary" style="padding: 100px 0 20px 0; margin:0 0 0 0">Overview</h3>
+        <section class="text-left stripe" style="padding-bottom:60px">
             <span style="font-size: medium;">
                 Kenkō is a customizable and secure patient-centric portal offering cloud-based solutions for healthcare facilities. Our portal offers a single patient engagement solution to include:<br />
                 <br />
@@ -122,14 +124,15 @@
                 Compatible with Windows, Mac and Linux operating systems.
             </span>
         </section>
-        <br />
-        <br />
+        @*<br />
+            <br />*@
     </div>
 
 
-    <div class="aboutus-content" id="aboutus"  style="padding-top:100px">
-        <h3 class="aboutus-content text-center"> About Us</h3>
-        <section class="text-center">
+    <div class="stripe2" id="aboutus" style="padding:0px 50px 0px 50px">
+        @*removed top & bottom padding*@
+        <h3 class="text-center" style="padding: 100px 0 20px 0; margin:0 0 0 0"> About Us</h3>
+        <section class="text-left stripe2" style="padding-bottom:60px">
             Kenkō is a customizable and secure patient-centric portal offering cloud-based solutions for healthcare facilities. Our portal offers a single patient engagement solution to include:<br />
             <br />
             • Validation of insurance accepted by facility<br />
@@ -148,9 +151,10 @@
     </div>
 
 
-    <div class="contact-content" id="contact"  style="padding-top:100px">
-        <h3 class="contact-content text-center"> Contact</h3>
-        <section class="text-center">
+    <div class="stripe" id="contact" style="padding:0px 50px 0px 50px; margin:0 0 0 0">
+        @*removed top & bottom padding*@
+        <h3 class="text-center" style="padding: 100px 0 20px 0; margin:0 0 0 0"> Contact</h3>
+        <section class="text-left stripe" style="padding-bottom:60px">
             Kenkō is a customizable and secure patient-centric portal offering cloud-based solutions for healthcare facilities. Our portal offers a single patient engagement solution to include:<br />
             <br />
             • Validation of insurance accepted by facility<br />
@@ -166,6 +170,9 @@
         </section>
         <br />
         <br />
+    </div>
+
+    <div style="padding:100px 0px 100px 0px; margin:0 0 0 0">
     </div>
 
 </body>
