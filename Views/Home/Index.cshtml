@@ -57,25 +57,30 @@
 
 
 @{
-    ViewData["Title"] = "Kenkō Portal";
+    ViewData["Title"] = "Home Page";
 }
+
 <html>
 
 <head>
-    <style>
-        .mySlides {
-            display: none;
-        }
-    </style>
+    <title>W3.CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
 </head>
 
 <body>
 
-
-    <div class="w3-content w3-section" style="max-width:500px">
-        <img class="mySlides" src="~/img/Kenko_hands_2.jpg" style="height:200px">
-        <img class="mySlides" src="~/img/Kenko_pills.jpg" style="height:200px">
-        <img class="mySlides" src="~/img/Kenko_stethoscope.jpg" style="height:200px">
+    @*Emilee changed max width from 1000px o 1200 px,needs to be modified, issue with linking on page*@
+    <div class="w3-content w3-section" style="max-width:1200px">
+        <img class="mySlides" src="~/img/Kenko_stethoscope_2.jpg" style="width:100%">
+        <img class="mySlides" src="~/img/Kenko_bloodpressure.jpg" style="width:100%">
+        <img class="mySlides" src="~/img/Kenko_smartwatch.jpg" style="width:100%">
+        <img class="mySlides" src="~/img/Kenko_Shoes.jpg" style="width:100%">
+     
     </div>
 
     <script>
@@ -98,10 +103,9 @@
 
     <div></div>
 
-
-    <div class="overview-content" id="overview" style="padding-top:100px"> @*adding padding as a test for sticky navbar*@
-        <h3 class="overview-content text-primary">Overview</h3>
-        <section class="text-justify">
+    <div class="overview-content" id="overview">
+        <h3 class="overview-content text-center primary">Overview</h3>
+        <section class="text-center">
             <span style="font-size: medium;">
                 Kenkō is a customizable and secure patient-centric portal offering cloud-based solutions for healthcare facilities. Our portal offers a single patient engagement solution to include:<br />
                 <br />
@@ -123,9 +127,9 @@
     </div>
 
 
-    <div class="aboutus-content" id="aboutus" style="padding-top:100px">
-        <h3 class="aboutus-content text-center"> About Us</h3>
-        <section class="text-center">
+    <div class="aboutus-content" id="aboutus">
+        <h3 class="aboutus-content text-justify"> About Us</h3>
+        <section class="text-justify">
             Kenkō is a customizable and secure patient-centric portal offering cloud-based solutions for healthcare facilities. Our portal offers a single patient engagement solution to include:<br />
             <br />
             • Validation of insurance accepted by facility<br />
@@ -145,7 +149,6 @@
 
 
     <div class="contact-content" id="contact">
-
         <h3 class="contact-content text-right"> Contact</h3>
         <section class="text-md-right">
             Kenkō is a customizable and secure patient-centric portal offering cloud-based solutions for healthcare facilities. Our portal offers a single patient engagement solution to include:<br />
@@ -160,7 +163,6 @@
             <br />
             In addition, Kenkō is HIPAA-Compliant and EHR-agnostic, achieving interoperability with all EHRs. Implementation of our patient portal will assist your healthcare facility to achieve stage 3 meaningful use published by CMS (Center for Medicare and Medicaid Services) and ONC (Office of National Coordinator).<br />
             Compatible with Windows, Mac and Linux operating systems.<br />
-
         </section>
         <br />
         <br />
