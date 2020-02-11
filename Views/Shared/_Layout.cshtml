@@ -57,10 +57,10 @@
                 }
                 else
                 {
-                    <a href="#overview">Overview</a>
-                    <a href="#aboutus">About Us</a>
-                    <a href="#meettheteam">Meet the Team</a>
-                    <a href="#contact">Contact Us</a>
+                    <a class="nav-link" href="#overview">Overview</a>
+                    <a class="nav-link" href="#aboutus">About Us</a>
+                    <a class="nav-link" href="#meettheteam">Meet the Team</a>
+                    <a class="nav-link" href="#contact">Contact Us</a>
 
                 }
                 <partial name="_LoginPartial" />
@@ -68,7 +68,8 @@
         </nav>
     </header>
     <div class="container">
-        <main role="main" class="pb-3 content" style="padding-top:100px"> @*manually added padding*@
+        <main role="main" class="pb-3 content" style="padding-top:100px">
+            @*manually added padding*@
             @RenderBody()
         </main>
     </div>
@@ -78,9 +79,12 @@
             &copy; 2020 - KenkoApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+    <script src="~/js/navfunction.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    
     @RenderSection("Scripts", required: false)
+
 </body>
 </html>
