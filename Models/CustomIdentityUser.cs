@@ -28,7 +28,7 @@ namespace KenkoApp.Models
         
         [Display(Name = "Gender")]
         public string Gender { get; set; }
-        public string[] Genders = new[] { "Male", "Female", "Unspecified" }; //add line 31
+        public string[] Genders = new[] { "Male", "Female", "Unspecified" }; 
         
         [Display(Name = "Social Security Number")]
         public string SocialSecurityNumber { get; set; }
