@@ -28,7 +28,8 @@ namespace KenkoApp.Models
         
         [Display(Name = "Gender")]
         public string Gender { get; set; }
-
+        public string[] Genders = new[] { "Male", "Female", "Unspecified" }; //add line 31
+        
         [Display(Name = "Social Security Number")]
         public string SocialSecurityNumber { get; set; }
 
@@ -71,6 +72,9 @@ namespace KenkoApp.Models
 
         [Display(Name = "Insurance Policy Number")]
         public string InsurancePolicyNumber { get; set; }
-
+ 
     }
+
+
 }
+
