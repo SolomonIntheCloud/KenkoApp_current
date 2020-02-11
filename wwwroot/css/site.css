@@ -50,6 +50,28 @@ for details on configuring this project to bundle and minify static web assets. 
         z-index: -1;
     }
 
+.stripe3 {
+    background-color: none;
+    position: relative;
+    background-size: cover;
+    
+}
+
+    .stripe3:before {
+        content: "";
+        background-image: url('../img/background photos/doctor.jpg');
+        position: absolute;
+        min-height: 100%;
+        min-width: 1000px;
+        object-fit:cover;
+        width:100%;
+        height:auto;
+        left: -220px;
+        z-index: -1;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
 .featured:before {
     content: '+';
     font-weight: 400;
