@@ -17,7 +17,7 @@ for details on configuring this project to bundle and minify static web assets. 
 .white-box {
     width: auto;
     height: auto;
-    margin-top: 20px;
+    margin-top: 0px;
     margin-left: auto;
     margin-right: auto;
     padding: 40px 40px 40px 40px; 
@@ -32,21 +32,23 @@ for details on configuring this project to bundle and minify static web assets. 
 
 /*Stretches background across screen*/
 .stripe {
-    background-color: #CCFFFF;
+    background-color: none;
     position: relative;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-        .stripe:before {
-            content: "";
-            background-color: #CCFFFF;
-            position: absolute;
-            height: 100%;
-            width: 4000px;
-            left: -2000px;
-            z-index:-1;
-        }
+    .stripe:before {
+        content: "";
+        background-color: #CCFFFF;
+        #FE7923, #FFCC33;
+        background-image: linear-gradient(to bottom right, #ffd274, #ffa47c);
+        position: absolute;
+        height: 100%;
+        width: 4000px;
+        left: -2000px;
+        z-index: -1;
+    }
 
 .featured:before {
     content: '+';
@@ -57,14 +59,16 @@ for details on configuring this project to bundle and minify static web assets. 
 }
 
 .stripe2 {
-background-color: #fac26e;
+background-color: none;
 position: relative;
 background-size: cover;
+margin:0;
+padding:0;
 }
 
     .stripe2:before {
         content: "";
-        background-color:#fac26e;
+        background-image: linear-gradient(to bottom right, #bddbff, #aaffff);
         position: absolute;
         height: 100%;
         width: 4000px;

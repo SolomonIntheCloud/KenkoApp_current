@@ -47,64 +47,65 @@
     <!--Everything Below the NavBar-->
     <div>
             <!--Carousel Wrapper-->
-            <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
-                <!--Indicators-->
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-2" data-slide-to="1"></li>
-                    <li data-target="#carousel-example-2" data-slide-to="2"></li>
-                </ol>
-                <!--/.Indicators-->
-                <!--Slides-->
-                <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item active">
-                        <div class="view">
-                            <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
-                                 alt="First slide">
-                            <div class="mask rgba-black-light"></div>
-                        </div>
-                        <div class="carousel-caption">
-                            <h3 class="h3-responsive">Light mask</h3>
-                            <p>First text</p>
-                        </div>
+        <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
+                                     <!-- CAN WE CENTER & EXTEND THE CAROUSEL?  style="align-content:center; width:100%"-->
+            <!--Indicators-->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-2" data-slide-to="1"></li>
+                <li data-target="#carousel-example-2" data-slide-to="2"></li>
+            </ol>
+            <!--/.Indicators-->
+            <!--Slides-->
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <div class="view">
+                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
+                             alt="First slide">
+                        <div class="mask rgba-black-light"></div>
                     </div>
-                    <div class="carousel-item">
-                        <!--Mask color-->
-                        <div class="view">
-                            <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg"
-                                 alt="Second slide">
-                            <div class="mask rgba-black-strong"></div>
-                        </div>
-                        <div class="carousel-caption">
-                            <h3 class="h3-responsive">Strong mask</h3>
-                            <p>Secondary text</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <!--Mask color-->
-                        <div class="view">
-                            <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg"
-                                 alt="Third slide">
-                            <div class="mask rgba-black-slight"></div>
-                        </div>
-                        <div class="carousel-caption">
-                            <h3 class="h3-responsive">Slight mask</h3>
-                            <p>Third text</p>
-                        </div>
+                    <div class="carousel-caption">
+                        <h3 class="h3-responsive">Light mask</h3>
+                        <p>First text</p>
                     </div>
                 </div>
-                <!--/.Slides-->
-                <!--Controls-->
-                <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-                <!--/.Controls-->
+                <div class="carousel-item">
+                    <!--Mask color-->
+                    <div class="view">
+                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg"
+                             alt="Second slide">
+                        <div class="mask rgba-black-strong"></div>
+                    </div>
+                    <div class="carousel-caption">
+                        <h3 class="h3-responsive">Strong mask</h3>
+                        <p>Secondary text</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <!--Mask color-->
+                    <div class="view">
+                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg"
+                             alt="Third slide">
+                        <div class="mask rgba-black-slight"></div>
+                    </div>
+                    <div class="carousel-caption">
+                        <h3 class="h3-responsive">Slight mask</h3>
+                        <p>Third text</p>
+                    </div>
+                </div>
             </div>
+            <!--/.Slides-->
+            <!--Controls-->
+            <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+            <!--/.Controls-->
+        </div>
             <!--/.Carousel Wrapper-->
 
 
@@ -112,7 +113,7 @@
             <!--Everything Below the Carousel-->
             <div class="innerbody">
 
-                <div class="stripe" id="overview" style="padding:0px 50px 0px 50px">
+                <div class="stripe" id="overview" name="overview" style="padding:0px 50px 0px 50px">
                     <h3 class="HomeHeading">Overview</h3>
                     <section class="text-left" style="padding-bottom:60px">
                         <span style="font-size: medium;">
@@ -180,25 +181,29 @@
 
 
                 <div class="stripe2" id="contact" style="padding:0px 50px 0px 50px; margin:0 0 0 0">
-                    <h3 class="HomeHeading"> Contact Us</h3>
-                    <section class="text-left" style="padding-bottom:60px">
-                        <div class="white-box">
-                            Kenkō is a customizable and secure patient-centric portal offering cloud-based solutions for healthcare facilities. Our portal offers a single patient engagement solution to include:<br />
-                            <br />
+                    <br/><br/>
+                    <div class="white-box" style="padding:30px">
+                        
+                        <h3 class="HomeHeading" style="margin:0; padding:0"> Contact Us</h3>
+                        <section class="text-left" style="padding-bottom:60px">
+                            <div>
+                                Kenkō is a customizable and secure patient-centric portal offering cloud-based solutions for healthcare facilities. Our portal offers a single patient engagement solution to include:<br />
+                                <br />
 
-                            • Validation of insurance accepted by facility<br />
-                            • Selection of provider preference<br />
-                            • Appointment scheduling<br />
-                            • Access to healthcare records<br />
-                            • Prescription renewal<br />
-                            • Viewing of labs<br />
-                            • Ability to fill out forms electronically <br />
-                            <br />
+                                • Validation of insurance accepted by facility<br />
+                                • Selection of provider preference<br />
+                                • Appointment scheduling<br />
+                                • Access to healthcare records<br />
+                                • Prescription renewal<br />
+                                • Viewing of labs<br />
+                                • Ability to fill out forms electronically <br />
+                                <br />
 
-                            In addition, Kenkō is HIPAA-Compliant and EHR-agnostic, achieving interoperability with all EHRs. Implementation of our patient portal will assist your healthcare facility to achieve stage 3 meaningful use published by CMS (Center for Medicare and Medicaid Services) and ONC (Office of National Coordinator).<br />
-                            Compatible with Windows, Mac and Linux operating systems.<br />
-                        </div>
-                    </section>
+                                In addition, Kenkō is HIPAA-Compliant and EHR-agnostic, achieving interoperability with all EHRs. Implementation of our patient portal will assist your healthcare facility to achieve stage 3 meaningful use published by CMS (Center for Medicare and Medicaid Services) and ONC (Office of National Coordinator).<br />
+                                Compatible with Windows, Mac and Linux operating systems.<br />
+                            </div>
+                        </section>
+                    </div>
                     <br />
                     <br />
                 </div>
