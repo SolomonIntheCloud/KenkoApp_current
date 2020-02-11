@@ -5,60 +5,62 @@
 }
 
 
+    <div>
+        <div class="row" style="padding: 10px 0px 0px 10px">
+            <div class="col-8">
+                <h4>Health Record</h4>
+            </div>
+            <div class="col-4" style="vertical-align:baseline; text-align-last:right">
+                <h5>
+                    <a class="btn btn-primary" asp-action="Upload">Upload New</a>
+                </h5>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.RecordData)*@
+                        Preview
+                    </th>
 
-<div class="row" style="padding: 10px 0px 0px 10px">
-    <div class="col-8"> 
-        <h4>Health Record</h4>
+                    <th>
+                        File Type
+                    </th>
+                    <th>
+                        Record Note
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            <img src="@Url.Action("Display", "HealthRecords", new {id = item.HealthRecordID})" width="120" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FileType)
+                        </td>
+                        <td>
+                            @*added here*@
+                            @Html.DisplayFor(modelItem => item.RecordNotes)
+                        </td>
+                        <td style="text-align-last:right">
+                            <a asp-action="Edit" asp-route-id="@item.HealthRecordID">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.HealthRecordID">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.HealthRecordID">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
-    <div class="col-4" style="vertical-align:baseline; text-align-last:right" >
-        <h5>
-            <a  class="btn btn-primary" asp-action="Upload">Upload New</a>
-        </h5>
-    </div>
-</div>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @*@Html.DisplayNameFor(model => model.RecordData)*@
-                Preview
-            </th>
-
-            <th>
-                File Type
-            </th>
-            <th>
-                Record Note
-            </th>
-
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                <img src="@Url.Action("Display", "HealthRecords", new {id = item.HealthRecordID})" width="120" />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FileType)
-            </td>
-            <td>
-                @*added here*@
-                @Html.DisplayFor(modelItem => item.RecordNotes)
-            </td>
-            <td style="text-align-last:right">
-                <a asp-action="Edit" asp-route-id="@item.HealthRecordID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.HealthRecordID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.HealthRecordID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>

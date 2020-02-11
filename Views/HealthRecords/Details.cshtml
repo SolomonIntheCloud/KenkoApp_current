@@ -38,8 +38,9 @@
             @Html.DisplayFor(model => model.RecordNotes)
         </dd>
     </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.HealthRecordID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.HealthRecordID">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>
 </div>
