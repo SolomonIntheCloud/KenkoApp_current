@@ -31,7 +31,7 @@ namespace KenkoApp.Controllers
             ViewBag.id = _userManager.GetUserId(HttpContext.User);
             var currentUser = await _userManager.GetUserAsync(User);
             if (currentUser == null) return Challenge();
-            //return View(currentUser);
+            return View(currentUser);
 
             //if the current user id matches the CustomerUserID associated with the healthrecord, show those records.
             //if (currentUser.Id == CustomIdentityUserId)

@@ -99,8 +99,11 @@ namespace KenkoApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("Id,FirstName,LastName,DateofBirth,Gender,SocialSecurityNumber,Email,Phone,SecondaryPhone,Address,City,State,ZipCode,MaritalStatus,EmergencyContact,Relationship,InsuranceProvider,InsurancePolicyNumber")] CustomIdentityUser customIdentityUser)
         {
+            var user = await _userManager.FindByIdAsync(id);
+
             if (id != customIdentityUser.Id)
             {
+                ViewBag.ErrorMessage = $"User with Id = {id} cannot be found";
                 return NotFound();
             }
 
