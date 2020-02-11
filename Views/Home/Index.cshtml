@@ -1,61 +1,4 @@
-﻿@*@{
-        ViewData["Title"] = "Home Page";
-    }*@
-
-
-
-
-
-
-@*<div>
-
-
-
-        <style type="text/css">
-            body {
-                background-image: url('img/kenko1_kenko_logo_full.png');
-                background-repeat: no-repeat;
-                background-size: cover;
-            }
-        </style>
-    </div>
-
-        <div>
-            <style>
-                body {
-                    background-color: #4cff00;
-                    background-image: url('img/hipaa.jpg');
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                }
-            </style>*@
-
-@*</div>*@
-
-@*<div class="top-content">*@
-
-@*<style>
-        body {
-            background-color: #4cff00;
-            /*background-image: url('img/banner kenko.jpg')*/;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-    </style>*@
-@*</div>*@
-
-
-@*<body>
-        <div class="text-center">
-            <h1 class="display-4">Welcome</h1>
-        </div>
-
-
-    </body>*@
-
-
-
-
+﻿
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -75,37 +18,101 @@
 <body>
 
     @*Emilee changed max width from 1000px o 1200 px,needs to be modified, issue with linking on page*@
-    @*Ana modified to fixed height, also removed w3 classes*@ 
-    <div style="max-width:1200px; margin: 0 0 0 0">
-        <img class="mySlides" src="~/img/Kenko_stethoscope_2.jpg" style="height:600px">
-        <img class="mySlides" src="~/img/Kenko_bloodpressure.jpg" style="height:600px">
-        <img class="mySlides" src="~/img/Kenko_smartwatch.jpg" style="height:600px">
-        <img class="mySlides" src="~/img/Kenko_Shoes.jpg" style="height:600px">
+    @*Ana modified to fixed height, also removed w3 classes*@
+    @*<div style="max-width:1200px; margin: 0 0 0 0">
+            <img class="mySlides" src="~/img/Kenko_stethoscope_2.jpg" style="height:600px">
+            <img class="mySlides" src="~/img/Kenko_bloodpressure.jpg" style="height:600px">
+            <img class="mySlides" src="~/img/Kenko_smartwatch.jpg" style="height:600px">
+            <img class="mySlides" src="~/img/Kenko_Shoes.jpg" style="height:600px">
 
-    </div>
+        </div>
 
-    <script>
-        var myIndex = 0;
-        carousel();
+        <script>
+            var myIndex = 0;
+            carousel();
 
-        function carousel() {
-            var i;
-            var x = document.getElementsByClassName("mySlides");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
+            function carousel() {
+                var i;
+                var x = document.getElementsByClassName("mySlides");
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                myIndex++;
+                if (myIndex > x.length) { myIndex = 1 }
+                x[myIndex - 1].style.display = "block";
+                setTimeout(carousel, 2000); // Change image every 2 seconds
             }
-            myIndex++;
-            if (myIndex > x.length) { myIndex = 1 }
-            x[myIndex - 1].style.display = "block";
-            setTimeout(carousel, 2000); // Change image every 2 seconds
-        }
-    </script>
+        </script>*@
+
+
+    <!--Carousel Wrapper-->
+    <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
+        <!--Indicators-->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-2" data-slide-to="1"></li>
+            <li data-target="#carousel-example-2" data-slide-to="2"></li>
+        </ol>
+        <!--/.Indicators-->
+        <!--Slides-->
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+                <div class="view">
+                    <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
+                         alt="First slide">
+                    <div class="mask rgba-black-light"></div>
+                </div>
+                <div class="carousel-caption">
+                    <h3 class="h3-responsive">Light mask</h3>
+                    <p>First text</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <!--Mask color-->
+                <div class="view">
+                    <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg"
+                         alt="Second slide">
+                    <div class="mask rgba-black-strong"></div>
+                </div>
+                <div class="carousel-caption">
+                    <h3 class="h3-responsive">Strong mask</h3>
+                    <p>Secondary text</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <!--Mask color-->
+                <div class="view">
+                    <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg"
+                         alt="Third slide">
+                    <div class="mask rgba-black-slight"></div>
+                </div>
+                <div class="carousel-caption">
+                    <h3 class="h3-responsive">Slight mask</h3>
+                    <p>Third text</p>
+                </div>
+            </div>
+        </div>
+        <!--/.Slides-->
+        <!--Controls-->
+        <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+        <!--/.Controls-->
+    </div>
+    <!--/.Carousel Wrapper-->
+
+
 
 
     <div></div>
 
     <div class="stripe" id="overview" style="padding:0px 50px 0px 50px">
-        <h3  class="HomeHeading">Overview</h3>
+        <h3 class="HomeHeading">Overview</h3>
         <section class="text-left" style="padding-bottom:60px">
             <span style="font-size: medium;">
                 Kenkō is a customizable and secure patient-centric portal offering cloud-based solutions for healthcare facilities. Our portal offers a single patient engagement solution to include:<br />
@@ -148,10 +155,32 @@
         </div>
     </div>
 
+    <div class="stripe" id="meettheteam" style="padding:0px 50px 0px 50px">
+        <div>
+            <h3 class="HomeHeading">Meet the Team</h3>
+            <section class="text-left" style="padding-bottom:60px">
+                Kenkō is a customizable and secure patient-centric portal offering cloud-based solutions for healthcare facilities. Our portal offers a single patient engagement solution to include:<br />
+                <br />
+                • Validation of insurance accepted by facility<br />
+                • Selection of provider preference<br />
+                • Appointment scheduling<br />
+                • Access to healthcare records<br />
+                • Prescription renewal<br />
+                • Viewing of labs<br />
+                • Ability to fill out forms electronically <br />
+                <br />
+                In addition, Kenkō is HIPAA-Compliant and EHR-agnostic, achieving interoperability with all EHRs. Implementation of our patient portal will assist your healthcare facility to achieve stage 3 meaningful use published by CMS (Center for Medicare and Medicaid Services) and ONC (Office of National Coordinator).<br />
+                Compatible with Windows, Mac and Linux operating systems.<br />
+            </section>
+            <br />
+            <br />
+        </div>
+    </div>
 
-    <div class="stripe" id="contact" style="padding:0px 50px 0px 50px; margin:0 0 0 0">
-        <h3 class="HomeHeading"> Contact</h3>
-        <section class="text-left stripe" style="padding-bottom:60px">
+
+    <div class="stripe2" id="contact" style="padding:0px 50px 0px 50px; margin:0 0 0 0">
+        <h3 class="HomeHeading"> Contact Us</h3>
+        <section class="text-left" style="padding-bottom:60px">
             <div class="white-box">
                 Kenkō is a customizable and secure patient-centric portal offering cloud-based solutions for healthcare facilities. Our portal offers a single patient engagement solution to include:<br />
                 <br />
