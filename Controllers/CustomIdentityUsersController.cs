@@ -111,6 +111,21 @@ namespace KenkoApp.Controllers
             //this needs to be updated to include all managed fields. 
             //don't include fields not to be edited like id or user name.
             existingUser.FirstName = model.FirstName;
+            existingUser.LastName = model.LastName;
+            existingUser.DateofBirth = model.DateofBirth;
+            existingUser.Gender = model.Gender;
+            existingUser.SocialSecurityNumber = model.SocialSecurityNumber;
+            existingUser.PhoneNumber = model.PhoneNumber;
+            existingUser.SecondaryPhone = model.SecondaryPhone;
+            existingUser.Address = model.Address;
+            existingUser.City = model.City;
+            existingUser.State = model.State;
+            existingUser.ZipCode = model.ZipCode;
+            existingUser.MaritalStatus = model.MaritalStatus;
+            existingUser.EmergencyContact = model.EmergencyContact;
+            existingUser.Relationship = model.Relationship;
+            existingUser.InsuranceProvider = model.InsuranceProvider;
+            existingUser.InsurancePolicyNumber = existingUser.InsurancePolicyNumber;
             if (ModelState.IsValid)
             {
                 try
