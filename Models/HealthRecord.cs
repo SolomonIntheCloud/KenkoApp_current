@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,5 +15,6 @@ namespace KenkoApp.Models
         public string RecordNotes { get; set; }
         public CustomIdentityUser CustomIdentityUser { get; set; }
 
+        //public IFormFile HealthRecordFile { get; set; }
     }
 }

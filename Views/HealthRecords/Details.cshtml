@@ -15,21 +15,17 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Title)
         </dd>
-        @*<dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.RecordData)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.RecordData)
-            </dd>*@
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.FileType)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.FileType)
         </dd>
-        <dd>
-            @*<img src="@Url.Action("Display", "HealthRecords", new {id = HealthRecordID})" />*@
-            Picture goes here
+        <dt class="col-sm-2"> 
+            Preview 
+        </dt>
+        <dd class="col-sm-10">
+            <img style="width:1000px"  src="@Url.Action("Display", "HealthRecords", new {id = Model.HealthRecordID})" />
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.RecordNotes)
