@@ -275,10 +275,11 @@ active {
     background-color: #edaf53;
     background-repeat: no-repeat;
     background-size: cover;
-}
+}*/
 
 
-.contact-content {
+
+/*.contact-content {
     background-color: #e2dede;
     background-repeat: no-repeat;
     background-size: cover;
@@ -290,12 +291,14 @@ active {
 }
 
 /*sticky navbar */
-.navbar {
+. navbar {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1;
 }
+
+
 
 
 .img {
