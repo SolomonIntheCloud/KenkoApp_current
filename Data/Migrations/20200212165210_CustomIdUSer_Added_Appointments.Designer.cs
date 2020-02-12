@@ -4,14 +4,16 @@ using KenkoApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace KenkoApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200212165210_CustomIdUSer_Added_Appointments")]
+    partial class CustomIdUSer_Added_Appointments
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -373,7 +375,7 @@ namespace KenkoApp.Data.Migrations
             modelBuilder.Entity("KenkoApp.Models.Appointment", b =>
                 {
                     b.HasOne("KenkoApp.Models.CustomIdentityUser", "CustomIdentityUser")
-                        .WithMany("Appointments")
+                        .WithMany()
                         .HasForeignKey("CustomIdentityUserId");
 
                     b.HasOne("KenkoApp.Models.PCM", "PCM")

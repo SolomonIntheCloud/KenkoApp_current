@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using KenkoApp.Data;
 using KenkoApp.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace KenkoApp.Controllers
 {
@@ -15,10 +16,11 @@ namespace KenkoApp.Controllers
     public class PCMsController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public PCMsController(ApplicationDbContext context)
+        private readonly UserManager<CustomIdentityUser> _userManager;
+        public PCMsController(ApplicationDbContext context, UserManager<CustomIdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: PCMs

@@ -12,6 +12,7 @@ namespace KenkoApp.Models
     {
         public PCM PCM { get; set; }
         public ICollection<HealthRecord> HealthRecords { get; set; } 
+        public ICollection<Appointment> Appointments { get; set; }
 
         //Emilee, add new patient user properties 
         [Display(Name = "First Name")]
