@@ -87,7 +87,5 @@ namespace KenkoApp.Models
         public string InsurancePolicyNumber { get; set; }
  
     }
-
-   
 }
 
