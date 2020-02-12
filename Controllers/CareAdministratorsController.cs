@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using KenkoApp.Data;
 using KenkoApp.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace KenkoApp.Controllers
 {
@@ -15,10 +16,11 @@ namespace KenkoApp.Controllers
     public class CareAdministratorsController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public CareAdministratorsController(ApplicationDbContext context)
+        private readonly UserManager<CustomIdentityUser> _userManager;
+        public CareAdministratorsController(ApplicationDbContext context, UserManager<CustomIdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: CareAdministrators

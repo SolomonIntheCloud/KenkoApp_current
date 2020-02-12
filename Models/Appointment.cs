@@ -11,5 +11,6 @@ namespace KenkoApp.Models
         public int AppointmentID { get; set; }
         public string ReasonForVisit { get; set; }
         public PCM PCM { get; set; }
+        public CustomIdentityUser CustomIdentityUser { get; set; }
     }
 }

@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using KenkoApp.Data;
 using KenkoApp.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Http;
 
 namespace KenkoApp.Controllers
 {
@@ -15,16 +17,25 @@ namespace KenkoApp.Controllers
     public class AppointmentsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<CustomIdentityUser> _userManager;
 
-        public AppointmentsController(ApplicationDbContext context)
+        public AppointmentsController(ApplicationDbContext context, UserManager<CustomIdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Appointments
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Appointment.ToListAsync());
+            var currentUser = await _userManager.GetUserAsync(User);
+            if (currentUser == null) return Challenge();
+
+            List<Appointment> model = _context
+                .Appointment
+                .Where(x => x.CustomIdentityUser.Id == currentUser.Id)
+                .ToList();
+            return View(model);
         }
 
         // GET: Appointments/Details/5
@@ -56,14 +67,19 @@ namespace KenkoApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DateTime,AppointmentID,ReasonForVisit")] Appointment appointment)
+        public async Task<IActionResult> Create([Bind("DateTime,AppointmentID,ReasonForVisit")] Appointment appointment, List<IFormFile> fileInputData, string UserID)
         {
+
+            var user = await _userManager.GetUserAsync(User);
+            appointment.CustomIdentityUser = user;
+
             if (ModelState.IsValid)
             {
                 _context.Add(appointment);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+          
             return View(appointment);
         }
 

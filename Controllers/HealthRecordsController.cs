@@ -28,24 +28,18 @@ namespace KenkoApp.Controllers
         // GET: HealthRecords
         public async Task<IActionResult> Index()
         {
-            ViewBag.id = _userManager.GetUserId(HttpContext.User);
             var currentUser = await _userManager.GetUserAsync(User);
             if (currentUser == null) return Challenge();
-            return View(currentUser);
-
-            //if the current user id matches the CustomerUserID associated with the healthrecord, show those records.
-            //if (currentUser.Id == CustomIdentityUserId)
-            //{
-            //}
-
-            //code from Michael
-            var model = _context
+           
+            List<HealthRecord> model = _context
                 .HealthRecords
                 .Where(x => x.CustomIdentityUser.Id == currentUser.Id)
-
                 .ToList();
+            return View(model); 
 
-            return View(await _context.HealthRecords.ToListAsync());
+            //return View(currentUser);
+            //if the current user id matches the CustomerUserID associated with the healthrecord, show those records.
+            //code from Michael
         }
 
         // GET: HealthRecords/Details/5
