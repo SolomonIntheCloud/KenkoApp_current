@@ -99,18 +99,27 @@ namespace KenkoApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("Id,FirstName,LastName,DateofBirth,Gender,SocialSecurityNumber,Email,Phone,SecondaryPhone,Address,City,State,ZipCode,MaritalStatus,EmergencyContact,Relationship,InsuranceProvider,InsurancePolicyNumber")] CustomIdentityUser customIdentityUser)
         {
-            var user = await _userManager.FindByIdAsync(id);
-
-            if (id != customIdentityUser.Id)
-            {
-                ViewBag.ErrorMessage = $"User with Id = {id} cannot be found";
-                return NotFound();
-            }
-
+            //var user = await _userManager.FindByIdAsync(id);
+            //if (id != customIdentityUser.Id)
+            //{
+            //    ViewBag.ErrorMessage = $"User with Id = {id} cannot be found";
+            //    return NotFound();
+            //}
+            //the ConcurrencyStamp was not correct. the update statement looks for the existing user's
+            //id and ConcurrencyStamp in the where, ex...
+            //
+            //update user set name = @n where id = @id and @ConcurrencyStamp = @c
+            //
+            //this HACK gets the current id
+            var existingUser = _context.Users.SingleOrDefault(x => x.Id == id);
+            customIdentityUser.ConcurrencyStamp = existingUser.ConcurrencyStamp;
             if (ModelState.IsValid)
             {
                 try
                 {
+                    //the update statement was throwing an error because the entity was loaded by my new code 
+                    //above. This HACK removed the entity so we can keep the same simpler code. 
+                    _context.Entry(existingUser).State = EntityState.Detached;
                     _context.Update(customIdentityUser);
                     await _context.SaveChangesAsync();
                 }
