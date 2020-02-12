@@ -9,9 +9,7 @@ using System.Threading.Tasks;
 namespace KenkoApp.Models
 {
     public class CustomIdentityUser : IdentityUser  
-
     {
-
         public PCM PCM { get; set; }
         public ICollection<HealthRecord> HealthRecords { get; set; } 
 
