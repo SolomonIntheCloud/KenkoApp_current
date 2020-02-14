@@ -12,7 +12,7 @@
             </div>
             <div class="col-4" style="vertical-align:baseline; text-align-last:right">
                 <h5>
-                    <a class="btn btn-primary" asp-action="Upload">Upload New</a>
+                    <a class="btn btn-primary" asp-action="Upload"> Upload New </a>
                 </h5>
             </div>
         </div>
@@ -26,11 +26,11 @@
                         @*@Html.DisplayNameFor(model => model.RecordData)*@
                         Preview
                     </th>
-                    <th>
+                    @*<th>
                         File Type
-                    </th>
+                    </th*@>
                     <th>
-                        Record Note
+                        Notes
                     </th>
                     <th></th>
                 </tr>
@@ -45,9 +45,9 @@
                         <td>
                             <img src="@Url.Action("Display", "HealthRecords", new {id = item.HealthRecordID})" width="120" />
                         </td>
-                        <td>
+                        @*<td>
                             @Html.DisplayFor(modelItem => item.FileType)
-                        </td>
+                        </td>*@
                         <td>
                             @*added here*@
                             @Html.DisplayFor(modelItem => item.RecordNotes)

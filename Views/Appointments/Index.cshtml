@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <div @*class="innerbody"*@>
+    <div>
         <div class="row">
             <div class="col-8">
                 <h3>My Appointments</h3>
@@ -21,7 +21,7 @@
                         @Html.DisplayNameFor(model => model.DateTime)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.ReasonForVisit)
+                       Reason For Visit
                     </th>
                     <th></th>
                 </tr>
@@ -37,9 +37,9 @@
                             @Html.DisplayFor(modelItem => item.ReasonForVisit)
                         </td>
                         <td>
-                            <a asp-action="Edit" asp-route-id="@item.AppointmentID">Edit</a> |
+                            <a asp-action="Edit" asp-route-id="@item.AppointmentID"> Reschedule</a> |
                             <a asp-action="Details" asp-route-id="@item.AppointmentID">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.AppointmentID">Delete</a>
+                            <a asp-action="Delete" asp-route-id="@item.AppointmentID">Cancel</a>
                         </td>
                     </tr>
                 }
