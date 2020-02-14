@@ -5,7 +5,7 @@
 
 <html>
 
-<head>
+<head style="padding-top:0; margin-top:0">
     <title>W3.CSS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
@@ -17,7 +17,7 @@
 
 </head>
 
-<body>
+<body style="padding-top:0; margin-top:0">
 
     <!--Everything Below the NavBar-->
     <div>
@@ -32,41 +32,41 @@
             </ol>
             <!--/.Indicators-->
             <!--Slides-->
-            <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active">
+            <div class="carousel-inner accept-policy" role="listbox">
+                <div class="carousel-item active"> <!--removed active class-->
                     <div class="view">
-                        <img class="d-block w-100" src="~/img/therapy.png"
+                        <img class="d-block w-100" src="~/img/carousel_photos-03.png"
                              alt="First slide">
-                        <img  />
                         <div class="mask rgba-black-light"></div>
                     </div>
-                    <div class="carousel-caption">
-                        <h3 class="h3-responsive"> Kenkō</h3>
-                        <p> Making your health a priority.</p>
+                    <div class="carousel-caption" style="color:black">
+                        <h1 class="h3-responsive"> Kenkō</h1>
+                        <h3> Making your health a priority.</h3>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <!--Mask color-->
                     <div class="view">
-                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg"
+                        <img class="d-block w-100" src="~/img/carousel_photos-04.png"
                              alt="Second slide">
+
                         <div class="mask rgba-black-strong"></div>
                     </div>
-                    <div class="carousel-caption">
-                        <h3 class="h3-responsive">Health</h3>
-                        <p>Taking care of your health has never been easier.</p>
+                    <div class="carousel-caption" >
+                        <h1 class="h3-responsive">Health</h1>
+                        <h3>Taking care of your health has never been easier.</h3>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <!--Mask color-->
                     <div class="view">
-                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg"
+                        <img class="d-block w-100" src="~/img/carousel_photos-01.png" 
                              alt="Third slide">
                         <div class="mask rgba-black-slight"></div>
                     </div>
                     <div class="carousel-caption">
-                        <h3 class="h3-responsive">Autonomy</h3>
-                        <p> Take charge of your health and your health information.</p>
+                        <h1 class="h3-responsive">Autonomy</h1>
+                        <h3> Take charge of your health and your health information.</h3>
                     </div>
                 </div>
             </div>
@@ -167,22 +167,22 @@
             </div>*@
 
 
-        <div class="stripe" id="meettheteam" style="padding:0px 50px 0px 50px ; margin:0 0 0 0; z-index:1">
+        <div class="stripe" id="meettheteam" style="padding:0px 50px 0px 50px ; margin:0 0 0 0">
             <br /> <br /><br /><br />
-            <div class="white-box" style="margin-right:20px">
+            <div class="white-box" style="margin-right:20px; transform:rotate(-2deg); z-index:0">
                 <h3 class="HomeHeading" style="margin:0; padding:0 0 20px 0">Meet the Team</h3>
                 <br />
                 <section class="text-center" style="padding-bottom:10px">
                     <div class="container">
                         <div class="row">
                             <div class="col-sm">
-                                <img src="~/img/Ana_sqr-01.png" style="width:90%" class="rounded-circle" />
+                                <img src="~/img/Ana_sqr-01.png" style="width:90%" class="rounded-circle team" />
                             </div>
                             <div class="col-sm">
-                                <img src="~/img/Solomon_sqr-01.png" style="width:90%" class="rounded-circle" />
+                                <img src="~/img/Solomon_sqr-01.png" style="width:90%" class="rounded-circle team" />
                             </div>
                             <div class="col-sm">
-                                <img src="~/img/Emilee_sqr-01.png" style="width:90%" class="rounded-circle" />
+                                <img src="~/img/Emilee_sqr-01.png" style="width:90%" class="rounded-circle team" />
                             </div>
                         </div>
                     </div>
@@ -212,7 +212,7 @@
 
             <br />
             <br />
-            <div class="white-box" style="margin-left:20px; margin-top:-60px; text-align:center; z-index:-4">
+            <div class="white-box" style="margin-left:20px; margin-top:-60px; text-align:center; z-index:-4; transform:rotate(5deg)">
                 <h3 class="HomeHeading" style="margin:0; padding:0 0 20px 0">Consultant Team</h3>
                 <div class="container">
                     <div class="row">
@@ -258,7 +258,7 @@
 
             <div class="stripe2" id="contact" style="padding:0px 50px 0px 50px; margin:0 0 0 0">
                 <br /><br /><br /><br />
-                <div class="white-box2">
+                <div class="white-box">
                     <h3 class="HomeHeading" style="margin:0; padding:0"> Contact Us</h3>
                     <br />
                     <section class="text-left" @*style="padding-bottom:10px"*@>

@@ -7,6 +7,19 @@ for details on configuring this project to bundle and minify static web assets. 
     /*border-radius:20px;*/
 }
 
+.consultant_bubble:hover {
+    color: white;
+    background-image: linear-gradient(to bottom right, #0366d6, #00c2c2);
+    /*border-radius:20px;*/
+}
+
+
+.team:hover {
+    background-image: linear-gradient(to bottom right, #0366d6, #00c2c2);
+}
+
+
+
 p::before{
     display:block
 }
