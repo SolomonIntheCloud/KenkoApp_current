@@ -19,37 +19,10 @@
 
 <body>
 
-    @*emilee changed max width from 1000px o 1200 px,needs to be modified, issue with linking on page*@
-    @*ana modified to fixed height, also removed w3 classes*@
-    @*<div style="max-width:1200px; margin: 0 0 0 0">
-            <img class="myslides" src="~/img/kenko_stethoscope_2.jpg" style="height:600px">
-            <img class="myslides" src="~/img/kenko_bloodpressure.jpg" style="height:600px">
-            <img class="myslides" src="~/img/kenko_smartwatch.jpg" style="height:600px">
-            <img class="myslides" src="~/img/kenko_shoes.jpg" style="height:600px">
-
-        </div>
-
-        <script>
-            var myindex = 0;
-            carousel();
-
-            function carousel() {
-                var i;
-                var x = document.getelementsbyclassname("myslides");
-                for (i = 0; i < x.length; i++) {
-                    x[i].style.display = "none";
-                }
-                myindex++;
-                if (myindex > x.length) { myindex = 1 }
-                x[myindex - 1].style.display = "block";
-                settimeout(carousel, 2000); // change image every 2 seconds
-            }
-        </script>*@
-
     <!--Everything Below the NavBar-->
     <div>
             <!--Carousel Wrapper-->
-        <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel" style="z-index:-1">
+        <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel" style="z-index:-1; min-width:1500px; margin: 0 0 0 -200px; padding-top:0">
                                      <!-- CAN WE CENTER & EXTEND THE CAROUSEL?  style="align-content:center; width:100%"-->
             <!--Indicators-->
             <ol class="carousel-indicators">
@@ -68,8 +41,8 @@
                         <div class="mask rgba-black-light"></div>
                     </div>
                     <div class="carousel-caption">
-                        <h3 class="h3-responsive">Light mask</h3>
-                        <p>First text</p>
+                        <h3 class="h3-responsive"> Kenkō</h3>
+                        <p> Making your health a priority.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
@@ -80,8 +53,8 @@
                         <div class="mask rgba-black-strong"></div>
                     </div>
                     <div class="carousel-caption">
-                        <h3 class="h3-responsive">Strong mask</h3>
-                        <p>Secondary text</p>
+                        <h3 class="h3-responsive">Health</h3>
+                        <p>Taking care of your health has never been easier.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
@@ -92,8 +65,8 @@
                         <div class="mask rgba-black-slight"></div>
                     </div>
                     <div class="carousel-caption">
-                        <h3 class="h3-responsive">Slight mask</h3>
-                        <p>Third text</p>
+                        <h3 class="h3-responsive">Autonomy</h3>
+                        <p> Take charge of your health and your health information.</p>
                     </div>
                 </div>
             </div>
@@ -194,48 +167,90 @@
             </div>*@
 
 
-            <div class="stripe" id="meettheteam" style="padding:0px 50px 0px 50px ; margin:0 0 0 0">
-                <br /> <br /><br /><br />
-                <div class="white-box">
-                    <h3 class="HomeHeading" style="margin:0; padding:0 0 20px 0">Meet the Team</h3>
-                    <br />
-                    <section class="text-center" style="padding-bottom:10px">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm">
-                                    <img src="~/img/Kenko_Ana_2.jpg" width="60%" class="rounded-circle" />
-                                </div>
-                                <div class="col-sm">
-                                    <img src="~/img/Kenko_Solomon_3.jpg" width="60%" class="rounded-circle" />
-                                </div>
-                                <div class="col-sm">
-                                    <img src="~/img/Kenko_Emilee.jpg" width="60%" class="rounded-circle" />
-                                </div>
+        <div class="stripe" id="meettheteam" style="padding:0px 50px 0px 50px ; margin:0 0 0 0; z-index:1">
+            <br /> <br /><br /><br />
+            <div class="white-box" style="margin-right:20px">
+                <h3 class="HomeHeading" style="margin:0; padding:0 0 20px 0">Meet the Team</h3>
+                <br />
+                <section class="text-center" style="padding-bottom:10px">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <img src="~/img/Ana_sqr-01.png" style="width:90%" class="rounded-circle" />
+                            </div>
+                            <div class="col-sm">
+                                <img src="~/img/Solomon_sqr-01.png" style="width:90%" class="rounded-circle" />
+                            </div>
+                            <div class="col-sm">
+                                <img src="~/img/Emilee_sqr-01.png" style="width:90%" class="rounded-circle" />
                             </div>
                         </div>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm">
-                                    <h4 style="margin-bottom:0"> Ana Paula Tomita</h4>
-                                    <p> Tech Lead </p>
-                                </div>
-                                <div class="col-sm">
-                                    <h4 style="margin-bottom:0">Solomon Kpodo</h4>
-                                    <p> Project Manager</p>
-                                </div>
-                                <div class="col-sm">
-                                    <h4 style="margin-bottom:0">Emilee Demore</h4>
-                                    <p>Health IMS Officer</p>
-                                </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <h4 style="margin-bottom:0"> Ana Paula Tomita</h4>
+                                <p> Tech Lead </p>
+                            </div>
+                            <div class="col-sm">
+                                <h4 style="margin-bottom:0">Solomon Kpodo</h4>
+                                <p> Project Manager</p>
+                            </div>
+                            <div class="col-sm">
+                                <h4 style="margin-bottom:0">Emilee Demore</h4>
+                                <p>Health IMS Officer</p>
                             </div>
                         </div>
-                    </section>
-                    <section>
+                    </div>
+                    
 
-                    </section>
-                </div>
-                <br /><br /><br /><br />
+
+                </section>
+
             </div>
+
+
+            <br />
+            <br />
+            <div class="white-box" style="margin-left:20px; margin-top:-60px; text-align:center; z-index:-4">
+                <h3 class="HomeHeading" style="margin:0; padding:0 0 20px 0">Consultant Team</h3>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+
+                            <div class="container consultant_bubble rounded-circle" style="width:85%">
+                                <br /> <br />
+                                <h5 style="margin-bottom:0"> Jody Chavis</h5>
+
+                                <p> HIMS / Azure <br /> Consultant</p> <br /> <br />
+
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="container consultant_bubble rounded-circle" style="width:85%">
+                                <br /> <br />
+                                <h5 style="margin-bottom:0">Michael Saft</h5>
+
+                                <p>App Architecture Consultant</p><br /> <br />
+
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="container consultant_bubble rounded-circle" style="width:85%">
+                                <br /> <br />
+                                <h5 style="margin-bottom:0">Brandon Rivera</h5>
+
+                                <p>MVC</> </p><p>Consultant</p> <br /> <br />
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <br /><br /><br /><br />
+        </div>
 
 
 
