@@ -3,13 +3,13 @@ for details on configuring this project to bundle and minify static web assets. 
 
 .consultant_bubble {
     color: white;
-    background-image: linear-gradient(to bottom right, #0366d6, #00c2c2);
+    background-image: linear-gradient(to bottom right, #0a6fff, #9bf9ff);
     /*border-radius:20px;*/
 }
 
 .consultant_bubble:hover {
     color: white;
-    background-image: linear-gradient(to bottom right, #0366d6, #00c2c2);
+    background-image: linear-gradient(to bottom right, #FE7923, #FFCC33);
     /*border-radius:20px;*/
 }
 
@@ -164,14 +164,14 @@ a {
     border-radius: 3px;
 }*/
 
- #button:hover {
+#button:hover {
     color: white;
-    background-image: linear-gradient(to bottom right, #0366d6, #00c2c2);
+    background-image: linear-gradient(to bottom right, #0a6fff, #9bf9ff);
     border-color: #fff;
     font-weight: bold;
     border: none;
     border-radius: 3px;
- }
+}
 .btn-primary {
     color: #fff;
     /*background-color: #FE7923;*/
@@ -193,19 +193,19 @@ a {
 
 .btn-link:hover {
     color: #fff;
-    background-image: linear-gradient(to bottom right, #0366d6, #00c2c2);
+    background-image: linear-gradient(to bottom right, #0a6fff, #9bf9ff);
     border-color: #fff;
 }
 
 .btn:hover {
     color: #fff;
-    background-image: linear-gradient(to bottom right, #0366d6, #00c2c2);
+    background-image: linear-gradient(to bottom right, #0a6fff, #9bf9ff);
     border-color: #fff;
 }
 
 .btn-primary:hover {
     color: #fff;
-    background-image: linear-gradient(to bottom right, #0366d6, #00c2c2);
+    background-image: linear-gradient(to bottom right, #0a6fff, #9bf9ff);
     border-color: #fff;
 }
 
